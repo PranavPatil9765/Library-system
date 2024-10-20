@@ -1,0 +1,119 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+nav ul li {
+    cursor: pointer;
+    margin-left: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+.text-content {
+    flex: 1;
+    padding-right: 50px;
+}
+h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+.button {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.primary-button {
+    background-color: #4285f4;
+    color: white;
+}
+.primary-button:hover {
+    background-color: #3367d6;
+}
+.secondary-button {
+    background-color: transparent;
+    color: #4285f4;
+    border: 2px solid #4285f4;
+}
+.secondary-button:hover {
+    background-color: #4285f4;
+    color: white;
+}
+.image-placeholder {
+    position: relative;
+    flex: 1;
+    height: 400px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #666;
+}
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .text-content {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+    .image-placeholder {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+/* home css end */
+
+
