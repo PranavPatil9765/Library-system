@@ -2,8 +2,18 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const session = require('express-session')
 const routes = require('./Router/Books')
+const mongoose = require('mongoose');
+
 
 let users = [];
+
+mongoose.connect("mongodb://localhost:27017",{
+    dbName:"books"
+})
+.then(()=>{console.log('connected to mongodb');})
+.catch(()=>{console.log('error connecting to mongodb')})
+
+
 
 // Check if a user with the given username already exists
 const doesExist = (username) => {
@@ -39,25 +49,33 @@ app.use(session({secret:"SecretKey"},resave=true,saveUninitialized=true));
 
 app.use(express.json());
 
+const cors = require('cors');
+const corsOptions = {
+    origin : "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+    credentials: true, 
+};
+app.use(cors(corsOptions));
 
-app.use("/Books", function auth(req, res, next) {
-    // Check if user is logged in and has valid access token
-    if (req.session.authorization) {
-        let token = req.session.authorization['accessToken'];
 
-        // Verify JWT token
-        jwt.verify(token, "access", (err, user) => {
-            if (!err) {
-                req.user = user;
-                next(); // Proceed to the next middleware
-            } else {
-                return res.status(403).json({ message: "User not authenticated" });
-            }
-        });
-    } else {
-        return res.status(403).json({ message: "User not logged in" });
-    }
-});
+// app.use("/Books", function auth(req, res, next) {
+//     // Check if user is logged in and has valid access token
+//     // if (req.session.authorization) {
+//     //     let token = req.session.authorization['accessToken'];
+
+//     //     // Verify JWT token
+//     //     jwt.verify(token, "access", (err, user) => {
+//     //         if (!err) {
+//     //             req.user = user;
+//     //             next(); // Proceed to the next middleware
+//     //         } else {
+//     //             return res.status(403).json({ message: "User not authenticated" });
+//     //         }
+//     //     });
+//     // } else {
+//     //     return res.status(403).json({ message: "User not logged in" });
+//     // }
+// });
 
 // Login endpoint
 app.post("/login", (req, res) => {
