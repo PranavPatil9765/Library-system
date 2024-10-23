@@ -43,7 +43,7 @@ const Home = () => {
   <Speech text="Welcome to react speech" />
     <div className="container" onClick={startListening}>
         <header>
-            <div className="logo" >Anurved</div>
+            {/* <div className="logo" >Anurved</div> */}
             <nav>
                 <ul>
                     <li onClick={()=>{navigate('/Home')}}>HOME</li>
