@@ -52,14 +52,14 @@ const Voice = () => {
           };
     
           useEffect(()=>{
-            let lastword = getLastWord(transcript);
+            let lastword = getLastWord(transcript).toLowerCase();
             console.log(lastword);
             if(lastword === "home"){
                 navigate('/');
                 resetTranscript();
             } if(lastword === "stop"){
                 stopAllAudio();
-            }else if(lastword === "Phoenix"){
+            }else if(lastword === "phoenix"){
                 document.getElementById("/src/audio/phoenix.mp3").play();
                 resetTranscript();
             }else if(lastword === "stone"){
@@ -71,10 +71,10 @@ const Voice = () => {
             }else if(lastword === "prisoner"){
                 document.getElementById("/src/audio/prisoner.mp3").play();
                 resetTranscript();
-            }else if(lastword === "Goblet"){
+            }else if(lastword === "goblet"){
                 document.getElementById("/src/audio/goblet.mp3").play();
                 resetTranscript();
-            }else if(lastword === "Deathly"){
+            }else if(lastword === "deathly"){
                 document.getElementById("/src/audio/hallows.mp3").play();
                 resetTranscript();
             }else if(lastword === "prince"){

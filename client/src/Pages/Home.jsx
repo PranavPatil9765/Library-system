@@ -7,7 +7,7 @@ import Speech from 'react-speech';
 
 const Home = () => {
    const startListening = () =>{
-    console.log('here');
+    console.log('listening');
     
 
      SpeechRecognition.startListening({continuous: true});
@@ -57,8 +57,8 @@ const Home = () => {
                 <h1>E-Library</h1>
                 <p>An inclusive eLibrary providing accessible resources for both disabled and non-disabled individuals to enjoy seamless learning and reading.</p>
                 <div className="cta-buttons">
-                    <a href="#" className="button primary-button" >Explore books</a>
-                    <a href="voice.html" className="button secondary-button">Try saying 'speech'</a>
+                    <a href="Books" className="button primary-button"  >Explore books</a>
+                    <a href="Voice" className="button secondary-button" >Try saying 'speech'</a>
                 </div>
             </div>
             <div className="image-placeholder" >
